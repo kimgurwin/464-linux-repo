@@ -1,0 +1,17 @@
+How to Run:
+1. ssh into the Raspberry Pi - Red
+2. Open up a vnc into the Pi
+3. Open the command terminal
+4. run "python3 ./pyckbot/py/Project0_V1_1.py"
+
+
+User Interface:
+- When the program is ran, a pygame window will open
+- Anytime you click out of the window, you will have to click back into the window to continue giving commands
+- Typing one of the programmed keys will issue a command to the robot
+
+Keyboard Controls:
+W - Pressing causes the robot to move forward
+A - Pressing causes the robot to move forward while turning left
+D - Pressing causes the robot to move forward while turning right
+Q/ESC - Pressing either button will end the program and close the pygame window

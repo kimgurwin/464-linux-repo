@@ -1,0 +1,3 @@
+The main file used to run our code is "Project0_V1_1.py". Running this .py file runs our whole robot. The other two files, "Project0_V1_0.py" and "Project0_V1_1_test.py" are used for testing. "Project0_V1_0.py" is used as a test to make sure our mechanics and motors are working before trying to debug code. "Project0_V1_1_test.py" was mainly used for testing with our spare motor whenever the motors were being used by the build side of the team.
+
+"Project0_V1_1.py" uses Joy_app resources to control our robot using a pygame window with key presses from the keyboard.
