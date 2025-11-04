@@ -1,0 +1,24 @@
+Archive:  2025-P1-green-report.zip
+ Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
+--------  ------  ------- ---- ---------- ----- --------  ----
+       0  Stored        0   0% 2025-11-03 22:01 00000000  2025-P1-green-report/
+  426401  Defl:N   421943   1% 2025-11-03 21:55 08596c3b  2025-P1-green-report/2025-P1-green-brainstorming.pdf
+  189295  Defl:N   185076   2% 2025-11-03 22:00 78f9d50d  2025-P1-green-report/2025-P1-green-final.pdf
+  139684  Defl:N   131334   6% 2025-11-03 21:53 6b964a34  2025-P1-green-report/2025-P1-green-resources.pdf.pdf
+ 7808854  Defl:N  7810942   0% 2025-11-03 21:55 43cf52cf  2025-P1-green-report/2025-P1-green-team-photo.png
+   66981  Defl:N    57981  13% 2025-11-03 21:53 661a5b5a  2025-P1-green-report/AI-check-claims.pdf
+   83451  Defl:N    69371  17% 2025-11-03 21:53 af6f265a  2025-P1-green-report/AI-check-writing.pdf
+     244  Defl:N      160  34% 2025-11-03 21:53 608faad6  2025-P1-green-report/COPYRIGHT.txt
+       0  Stored        0   0% 2025-11-03 21:58 00000000  2025-P1-green-report/howto/
+  403529  Defl:N   401303   1% 2025-11-03 21:56 d9b1e7c5  2025-P1-green-report/howto/2025-P1-green-howto.pdf
+    2086  Defl:N      937  55% 2025-11-03 21:53 a83433b2  2025-P1-green-report/README.txt
+       0  Stored        0   0% 2025-11-03 21:53 00000000  2025-P1-green-report/src/
+   13589  Defl:N     4061  70% 2025-11-03 21:53 b765fb16  2025-P1-green-report/src/green_step.py
+    1993  Defl:N     1016  49% 2025-11-03 21:53 3bf1ffcc  2025-P1-green-report/src/INSTALL.txt
+    3338  Defl:N     1526  54% 2025-11-03 21:53 e044ff03  2025-P1-green-report/src/OVERVIEW.txt
+    6357  Defl:N     2031  68% 2025-11-03 21:53 961496e9  2025-P1-green-report/src/robotCommands.py
+   13958  Defl:N     4232  70% 2025-11-03 21:53 8793f265  2025-P1-green-report/src/robotSimulator.py
+    2543  Defl:N     1246  51% 2025-11-03 21:53 83936c92  2025-P1-green-report/src/USAGE.txt
+       0  Stored        0   0% 2025-11-03 18:45 00000000  2025-P1-green-report/tex/
+--------          -------  ---                            -------
+ 9162303          9093159   1%                            19 files
