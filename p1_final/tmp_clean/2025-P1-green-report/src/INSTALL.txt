@@ -1,0 +1,63 @@
+INSTALL.txt
+
+Overview
+--------
+This project uses standard Python 3 and can run on macOS, Linux, or Windows. 
+No compilation is needed — the code runs directly as Python scripts. 
+However, certain optional dependencies are required if you want to run in hardware mode or use visualization tools.
+
+
+Requirements
+------------
+
+Base Requirements (for all users)
+--------------------------------
+- Python 3.8 or later  
+- Required Python packages:
+    pip install numpy matplotlib pygame
+
+- The following modules should be included in the project folder or installed in your environment:
+  - joy  
+  - robotSimIX  
+  - sensorPlanTCP  
+  - waypointShared  
+  - plotIX
+
+(These are typically provided in the EECS 498/598 Robotics toolchain; if you’re using the class setup, they are already included.)
+
+
+Optional: Hardware Control (CKBot)
+----------------------------------
+If you plan to control a real CKBot robot, you’ll need:
+
+1. The CKBot Python API (ckbot.logical)
+   Install from source or your lab’s hardware package:
+       pip install ckbot
+   Alternatively, request it from the course hardware setup files.
+
+2. Ensure the CKBot modules are powered and connected via USB or serial adapter.
+
+3. In robotSimulator.py, set:
+       REAL = True
+
+When the CKBot library or hardware is unavailable, the system automatically switches to simulation mode.
+
+
+Running the Simulator
+---------------------
+Once dependencies are installed:
+    python robotSimulator.py
+
+Optionally specify host and port:
+    python robotSimulator.py <host> <port>
+
+If using hardware mode, confirm that the console prints:
+    [RobotDriver] CKBot connected: left=Nx24, right=Nx32
+before starting motion commands.
+
+
+Notes
+-----
+- No external compiler or build system (like make) is required.  
+- If you are running this on a lab machine, ensure that your environment includes the course robotics framework (JoyApp, SimpleRobotSim, etc.).  
+- The program has been tested with Python 3.10 and 3.11 on macOS and Ubuntu.

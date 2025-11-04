@@ -1,0 +1,72 @@
+OVERVIEW.txt
+
+Purpose
+-------
+This project provides a modular system for simulating and controlling a two-legged CKBot robot. It supports both real hardware control and software simulation, enabling users to run experiments even without a physical robot. The codebase demonstrates event-driven robotic control using tap-based actuation and a bang-bang autonomous control strategy.
+
+File Descriptions
+-----------------
+
+1. robotCommands.py
+-------------------
+Implements the low-level driver for CKBot hardware or a simulated equivalent. 
+It defines the RobotDriver class, a thread-safe actuator controller that exposes a simple “tap” API. 
+Each tap corresponds to a short motion of one or both robot legs.
+
+Key Features:
+- Automatically detects whether CKBot hardware is connected (sim mode if not).
+- Provides motion primitives:
+  - forward_tap(): moves both legs for forward motion  
+  - turn_left_tap(): moves the right leg only  
+  - turn_right_tap(): moves the left leg only  
+  - stop(): halts all movement immediately
+- Uses threads to ensure non-blocking actuation.
+- Includes adjustable motion parameters such as amplitude, step size, and sweep delay.
+- Can emulate movement through dummy actuators when no hardware is present.
+
+Usage:
+This module is imported by robotSimulator.py when the global constant REAL = True.  
+In simulation mode, no CKBot library or hardware connection is required.
+
+
+2. robotSimulator.py
+--------------------
+Implements the high-level control application for robot movement and visualization. 
+It defines the RobotSimulatorApp class, which integrates keyboard controls, autonomous behavior, and visual feedback through the JoyApp framework.
+
+Key Features:
+- Supports manual keyboard control:
+  - ↑ = Forward  
+  - ← = Turn Left  
+  - → = Turn Right  
+  - ↓ = Stop  
+  - p = Toggle autonomous (bang-bang) mode
+- Runs in either:
+  - Simulation mode: uses SimpleRobotSim and motion plans (MoveForward, Turn)  
+  - Real mode: connects to the RobotDriver class from robotCommands.py
+- Implements bang-bang control logic for autonomous navigation:
+  - Alternates between “turn” and “forward” taps based on sensor feedback.
+  - Uses cooldowns and forced forward motion after turns to stabilize navigation.
+- Periodically updates visualization and sensor readings (10 Hz frame rate).
+- Stores motion history and command states for debugging or analysis.
+
+Execution:
+Run the simulator with:
+    python robotSimulator.py
+Optional arguments specify host and port for communication with a waypointServer.
+
+
+General Theory of Operation
+---------------------------
+The system operates as a hierarchical control framework:
+
+1. High-Level (App Layer):
+   The RobotSimulatorApp interprets user keyboard input or autonomous decisions and issues corresponding tap commands.
+
+2. Mid-Level (Driver Layer):
+   RobotDriver converts those commands into short, discrete actuator sweeps using threads, ensuring smooth motion without blocking the main loop.
+
+3. Low-Level (Hardware/Simulation Layer):
+   Either the CKBot hardware executes these movements, or the simulator mimics them with state updates in a visual environment.
+
+The control method is bang-bang, meaning movement decisions are made based on threshold conditions—turning or moving forward in discrete bursts rather than continuous motion.

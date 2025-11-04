@@ -1,0 +1,61 @@
+USAGE.txt
+
+Overview
+--------
+This program provides two modes for controlling a two-legged CKBot robot:
+1. Simulation mode – runs without any real hardware.
+2. Hardware mode – connects to CKBot hardware if available.
+
+The system uses a tap-based motion control scheme, where each tap moves one or both robot legs a short distance. It can be run manually (using the keyboard) or in autonomous bang-bang control mode.
+
+
+Running the Program
+-------------------
+
+Basic Command:
+    python robotSimulator.py
+Runs the simulator using default host and port settings.
+
+Specify Host and Port:
+    python robotSimulator.py <host>
+    python robotSimulator.py <host> <port>
+These options let the simulator communicate with an external waypoint server. 
+If no arguments are given, it uses local defaults defined in waypointShared.py.
+
+Hardware Mode:
+To enable real robot control, open robotSimulator.py and set:
+    REAL = True
+Make sure your CKBot hardware is connected and the CKBot Python library (ckbot.logical) is installed.
+If REAL = False, the simulator automatically runs in simulation mode using a graphical state display.
+
+
+Keyboard Controls
+-----------------
+
+| Key | Action | Description |
+|-----|---------|-------------|
+| ↑ | Move Forward | Sends repeated forward taps to advance the robot. |
+| ← | Turn Left | Sends repeated left taps to rotate the robot counterclockwise. |
+| → | Turn Right | Sends repeated right taps to rotate the robot clockwise. |
+| ↓ | Stop | Immediately halts all motion and resets actuator positions to zero. |
+| P | Toggle Autonomy | Turns bang-bang control ON/OFF. In autonomous mode, the robot alternates between turns and forward movement automatically based on sensor input. |
+| ESC / Close Window | Exit | Ends the program and closes the simulator window. |
+
+
+User Interface
+--------------
+- Console Output:
+  Displays motion commands, tap events, and system warnings (e.g., “RobotDriver initialized” or “Autonomy ON”).
+
+- Visualization Window:
+  Shows simulated robot position and motion updates (10 frames per second).
+
+- Sensor Feedback:
+  Periodic status messages (1 Hz) show current position, direction, and system state.
+
+
+Tips
+----
+- You can toggle between manual control and autonomy mid-run using the P key.
+- If a command doesn’t respond immediately, wait for the current tap motion to complete; each tap lasts about 0.1–0.2 seconds.
+- When in hardware mode, ensure the CKBot modules are powered and properly identified (left and right module IDs in RobotDriver constructor).
